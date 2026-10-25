@@ -116,11 +116,10 @@ class PandasChangeWarning(Warning):
     >>> pd.errors.PandasChangeWarning
     <class 'pandas.errors.PandasChangeWarning'>
     """
-
     @classmethod
-    @abc.abstractmethod
     def version(cls) -> str:
         """Version where change will be enforced."""
+        raise AbstractMethodError(cls, methodtype="classmethod")
 
 
 class PandasPendingDeprecationWarning(PandasChangeWarning, PendingDeprecationWarning):
